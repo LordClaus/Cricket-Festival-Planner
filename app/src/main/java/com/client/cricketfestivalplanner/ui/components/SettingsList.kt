@@ -38,7 +38,7 @@ fun SettingsList(
         items.forEachIndexed { index, item ->
             SettingsRow(item = item)
             if (index < items.lastIndex) {
-                HorizontalDivider(color = ColorTokens.Divider)
+                HorizontalDivider(color = MaterialTheme.colorScheme.outline)
             }
         }
     }
@@ -64,7 +64,7 @@ private fun SettingsRow(item: SettingsItem) {
             Text(
                 text = item.title,
                 style = MaterialTheme.typography.bodyLarge,
-                color = if (item.isDestructive) ColorTokens.Error else ColorTokens.TextPrimary
+                color = if (item.isDestructive) ColorTokens.Error else MaterialTheme.colorScheme.onSurface
             )
             item.subtitle?.let {
                 Text(

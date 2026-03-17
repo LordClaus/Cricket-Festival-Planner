@@ -174,7 +174,7 @@ fun SettingsScreen(
         ) {
             Column(modifier = Modifier.padding(Dimensions.md)) {
                 Card(
-                    colors = CardDefaults.cardColors(containerColor = ColorTokens.Card),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
                     elevation = CardDefaults.cardElevation(Dimensions.cardElevation)
                 ) {
                     SettingsList(items = settingsItems)
