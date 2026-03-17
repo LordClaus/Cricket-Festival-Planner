@@ -20,6 +20,9 @@ interface TournamentDao {
     @Delete
     suspend fun deleteTournament(tournament: TournamentEntity)
 
+    @Query("SELECT * FROM tournaments")
+    suspend fun getAllTournamentsOnce(): List<TournamentEntity>
+
     @Query("SELECT * FROM tournaments ORDER BY createdAt DESC")
     fun getAllTournaments(): Flow<List<TournamentEntity>>
 

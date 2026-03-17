@@ -119,7 +119,7 @@ fun EditTournamentScreen(
                 ) {
                     OutlinedTextField(
                         value = name,
-                        onValueChange = viewModel::onNameChange,
+                        onValueChange = { if (it.length <= 30) viewModel.onNameChange(it) },
                         label = { Text("Tournament Name") },
                         isError = nameError != null,
                         supportingText = { nameError?.let { Text(it) } },
@@ -248,7 +248,7 @@ fun EditTournamentScreen(
 
                     OutlinedTextField(
                         value = location,
-                        onValueChange = viewModel::onLocationChange,
+                        onValueChange = { if (it.length <= 50) viewModel.onLocationChange(it) },
                         label = { Text("Location (optional)") },
                         modifier = Modifier.fillMaxWidth()
                     )

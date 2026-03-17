@@ -26,7 +26,8 @@ import com.client.cricketfestivalplanner.ui.tournament.TournamentTableScreen
 @Composable
 fun AppNavGraph(
     navController: NavHostController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onThemeChanged: (Boolean) -> Unit = {}
 ) {
     NavHost(
         navController = navController,
@@ -186,7 +187,7 @@ fun AppNavGraph(
         }
 
         composable(Screen.Settings.route) {
-            SettingsScreen()
+            SettingsScreen(onThemeChanged = onThemeChanged)
         }
     }
 }

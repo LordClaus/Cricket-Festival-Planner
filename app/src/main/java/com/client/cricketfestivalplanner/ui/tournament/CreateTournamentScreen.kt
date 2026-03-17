@@ -91,8 +91,9 @@ fun CreateTournamentScreen(
         ) {
             OutlinedTextField(
                 value = name,
-                onValueChange = viewModel::onNameChange,
+                onValueChange = { if (it.length <= 30) viewModel.onNameChange(it) },
                 label = { Text("Tournament Name") },
+                singleLine = true,
                 isError = nameError != null,
                 supportingText = { nameError?.let { Text(it) } },
                 modifier = Modifier.fillMaxWidth()
@@ -209,8 +210,9 @@ fun CreateTournamentScreen(
 
             OutlinedTextField(
                 value = location,
-                onValueChange = viewModel::onLocationChange,
+                onValueChange = { if (it.length <= 50) viewModel.onLocationChange(it) },
                 label = { Text("Location (optional)") },
+                singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
 
@@ -225,8 +227,9 @@ fun CreateTournamentScreen(
             teamNames.forEachIndexed { index, teamName ->
                 OutlinedTextField(
                     value = teamName,
-                    onValueChange = { viewModel.onTeamNameChange(index, it) },
+                    onValueChange = { if (it.length <= 20) viewModel.onTeamNameChange(index, it) },
                     label = { Text("Team ${index + 1}") },
+                    singleLine = true,
                     modifier = Modifier.fillMaxWidth()
                 )
             }

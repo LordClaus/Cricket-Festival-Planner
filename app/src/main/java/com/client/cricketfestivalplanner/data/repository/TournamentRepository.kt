@@ -14,6 +14,8 @@ class TournamentRepository(private val tournamentDao: TournamentDao) {
 
     suspend fun getTournamentById(id: Int): TournamentEntity? = tournamentDao.getTournamentById(id)
 
+    suspend fun getAllTournamentsOnce(): List<TournamentEntity> = tournamentDao.getAllTournamentsOnce()
+
     suspend fun insertTournament(tournament: TournamentEntity): Long = tournamentDao.insertTournament(tournament)
 
     suspend fun updateTournament(tournament: TournamentEntity) = tournamentDao.updateTournament(tournament)

@@ -25,7 +25,8 @@ data class SettingsItem(
     val subtitle: String? = null,
     val icon: ImageVector,
     val onClick: () -> Unit,
-    val isDestructive: Boolean = false
+    val isDestructive: Boolean = false,
+    val trailingContent: (@Composable () -> Unit)? = null
 )
 
 @Composable
@@ -73,5 +74,6 @@ private fun SettingsRow(item: SettingsItem) {
                 )
             }
         }
+        item.trailingContent?.invoke()
     }
 }
